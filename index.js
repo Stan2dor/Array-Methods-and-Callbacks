@@ -73,13 +73,14 @@ hint: the strings returned need to exactly match the string in step 4.
 function getWinnersByYear(fifaData, getYears, getWinners) {
     let year = getYears(fifaData);
     let winners = getWinners(fifaData);
-    let newArr=[];
-    for(let i in getWinners(getYears)) {
-        newArr.push(`In ${year[i]}, ${winners[i]} won the world cup!` )
+    let newArr = [];
+    for (let i in getWinners(getYears)) {
+        newArr.push(`In ${year[i]}, ${winners[i]} won the world cup!`)
     }
     return newArr;
 }
 console.log(getWinnersByYear(fifaData, getYears, getWinners));
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
@@ -91,11 +92,13 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-    /* code here */
+function getAverageGoals(fifaData) {
+    let totalNumber = fifaData.reduce(function (total, item) {
+        return total + item["Home Team Goals"] + item["Away Team Goals"]
+    }, 0)
+    return (totalNumber / fifaData.length).toFixed(2);
 }
-
-
+console.log(getAverageGoals(getFinals(fifaData)));
 
 
 /// 🥅 STRETCH 🥅 ///
