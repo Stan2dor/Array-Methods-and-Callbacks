@@ -4,19 +4,17 @@ import { fifaData } from './fifa.js';
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
-const data2014 = fifaData.filter(function(copyArr) { 
-return copyArr.Year === 2014 && copyArr.Stage === 'Final';
-})
+const final2014 = fifaData.filter(item => item.Year === 2014 && item.Stage === 'Final');
 //(a) Home Team name for 2014 world cup final
-console.log(data2014[0]['Home Team Name']);
+console.log(final2014[0]['Home Team Name']);
 //(b) Away Team name for 2014 world cup final
-console.log(data2014[0]['Away Team Name']);
+console.log(final2014[0]['Away Team Name']);
 //(c) Home Team goals for 2014 world cup final
-console.log(data2014[0]['Home Team Goals']);
+console.log(final2014[0]['Home Team Goals']);
 //(d) Away Team goals for 2014 world cup final
-console.log(data2014[0]['Away Team Goals']);
+console.log(final2014[0]['Away Team Goals']);
 //(e) Winner of 2014 world cup final */
-console.log(data2014[0]['Win conditions']);
+console.log(final2014[0]['Win conditions']);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
@@ -27,10 +25,10 @@ hint - you should be looking at the stage key inside of the objects
 */
 
 function getFinals(item) {
-    const finalist = fifaData.filter(item =>item.Stage === 'Final')
+    const finalist = fifaData.filter(item => item.Stage === 'Final')
     return finalist;
 }
-// console.log(getFinals());
+console.log(getFinals(fifaData));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -40,9 +38,10 @@ Use the higher-order function called getYears to do the following:
 3. Return an array called years containing all of the years in the getFinals data set*/
 
 function getYears(fifaData) {
-    /* code here */
+    return getFinals(fifaData).map(item => item.Year);
 }
 
+console.log(getYears(getFinals(fifaData)));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
